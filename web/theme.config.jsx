@@ -42,10 +42,10 @@ const config = {
   head: metaTags,
   logo: <span>JavaScript Code Challenges</span>,
   project: {
-    link: "https://github.com/sadanandpai/javascript-code-challenges/",
+    link: "https://github.com/jojo51778/frontend-code-challenges",
   },
   docsRepositoryBase:
-    "https://github.com/sadanandpai/javascript-code-challenges/tree/main/web",
+    "https://github.com/jojo51778/frontend-code-challenges/tree/main/web",
   search: {
     placeholder: "Search",
   },
@@ -69,10 +69,10 @@ const config = {
     text: (
       <span>
         <a
-          href="https://github.com/sadanandpai/javascript-code-challenges/blob/main/LICENSE"
+          href="https://github.com/jojo51778/frontend-code-challenges/blob/main/LICENSE"
           target="_blank"
         >
-          MIT License - Copyright (c) 2020
+          MIT License - Copyright (c) 2024
         </a>
       </span>
     ),
