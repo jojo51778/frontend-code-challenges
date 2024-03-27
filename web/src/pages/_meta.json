@@ -1,0 +1,15 @@
+{
+  "index": {
+    "title": "Home",
+    "theme": {
+      "footer": false,
+      "toc": false,
+      "breadcrumb": false,
+      "pagination": false,
+      "sidebar": true
+    },
+    "display": "hidden"
+  },
+  "js_questions": "JavaScript coding question",
+  "react_questions": "React coding question"
+}
