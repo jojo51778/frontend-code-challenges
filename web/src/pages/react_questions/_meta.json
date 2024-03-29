@@ -1,5 +1,7 @@
 {
   "counter": "counter",
   "useTimeout": "useTimeout",
-  "useIsFirstRender": "useIsFirstRender"
+  "useIsFirstRender": "useIsFirstRender",
+  "useSWR": "useSWR"
+
 }
