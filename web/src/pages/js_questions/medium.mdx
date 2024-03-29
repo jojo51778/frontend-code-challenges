@@ -1,0 +1,46 @@
+import Image from "next/image";
+
+### 1. implement curry() with placeholder support
+please implement curry() which also supports placeholder.
+
+Here is an example
+```javascript
+const  join = (a, b, c) => {
+   return `${a}_${b}_${c}`
+}
+
+const curriedJoin = curry(join)
+const _ = curry.placeholder
+
+curriedJoin(1, 2, 3) // '1_2_3'
+
+curriedJoin(_, 2)(1, 3) // '1_2_3'
+
+curriedJoin(_, _, _)(1)(_, 3)(2) // '1_2_3'
+```
+solutions: 
+<Image
+  src="/curry.gif"
+  alt="curry visualized explanation"
+  width={400}
+  height={350}
+  className="m-auto my-16"
+/>
+1. Let’s first determine the base case `complete`
+2. if arg is curry.placeholder, wo only need to `args2.shift()`, and don't care about `args2.shift()` value, because of recursion
+3. if arg isn't curry.placeholder, return arg
+
+You can see my github file [js/medium/curry.js]((https://github.com/jojo51778/javascript-code-questions/blob/main/js/medium/curry.js))
+
+```javascript
+function curry(fn) {
+  return function curryInner(...args) {
+    const complete = args.length >= fn.length && !args.includes(curry.placeholder);
+    if(complete) return fn(...args);
+    return (...args2) => {
+      const res = args.map(arg => arg === curry.placeholder && args2.length ? args2.shift() : arg);
+      return curryInner(...res, ...args2)
+    };
+  }
+}
+```

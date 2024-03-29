@@ -19,3 +19,18 @@ curriedJoin(1)(2, 3) // '1_2_3'
 curriedJoin(1, 2)(3) // '1_2_3'
 ```
 
+solutions:
+1. The curry function takes a function (fn) as its parameter.
+2. If the number of arguments passed (args.length) is greater than or equal to the original function's arity (fn.length), then invoke fn with the spread syntax (...args) to pass all the collected arguments.
+3. If the number of arguments passed is not sufficient, then return an anonymous function that also uses the rest parameter syntax (...args2).
+4. Once the necessary number of arguments is met, the original function (fn) is called with all the accumulated arguments.
+
+You can see my github file [js/simple/curry.js](https://github.com/jojo51778/javascript-code-questions/blob/main/js/simple/curry.js)
+```javascript
+function curry(fn) {
+  return function curryInner(...args) {
+    if(args.length >= fn.length) return fn(...args);
+    return (...args2) => curryInner(...args, ...args2);
+  }
+}
+```
