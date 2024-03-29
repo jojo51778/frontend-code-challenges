@@ -9,7 +9,7 @@ const metaTags = (
     />
     <meta property="og:url" content="https://jscodechallenges.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JavaScript Code Challenges" />
+    <meta property="og:title" content="Frontend Code Challenges" />
     <meta
       property="og:description"
       content="Collection of modern interview code challenges on JavaScript suitable for Interviewees | Interviewers | Knowledge test | Practice"
@@ -25,7 +25,7 @@ const metaTags = (
       property="twitter:url"
       content="https://jscodechallenges.vercel.app/"
     />
-    <meta name="twitter:title" content="JavaScript Code Challenges" />
+    <meta name="twitter:title" content="Frontend Code Challenges" />
     <meta
       name="twitter:description"
       content="Collection of modern interview code challenges on JavaScript suitable for Interviewees | Interviewers | Knowledge test | Practice"
@@ -40,7 +40,7 @@ const metaTags = (
 
 const config = {
   head: metaTags,
-  logo: <span>JavaScript Code Challenges</span>,
+  logo: <span>Frontend Code Challenges</span>,
   project: {
     link: "https://github.com/jojo51778/frontend-code-challenges",
   },
@@ -56,12 +56,12 @@ const config = {
     const { asPath } = useRouter();
     if (asPath === "/") {
       return {
-        titleTemplate: "JavaScript Code Challenges",
+        titleTemplate: "Frontend Code Challenges",
       };
     }
 
     return {
-      titleTemplate: "%s - JavaScript Code Challenges",
+      titleTemplate: "%s - Frontend Code Challenges",
     };
   },
   gitTimestamp: null,
