@@ -1,5 +1,5 @@
 <div align="center">
-	<a href="https://frontend-code-challenges-psi.vercel.app/"><img src="web/public/hero.svg" alt="hero" width="100px"/></a>
+	<a href="https://frontend-code-challenges-psi.vercel.app/"><img src="web/public/banner.png" alt="banner" width="678px"/></a>
 	<h1>Frontend Code Challenges</h1>
 	<h3>Collection of modern interview code challenges on Frontend suitable for</h3>
 	<h4>Interviewees | Interviewers | Knowledge test | Practice</h4>
