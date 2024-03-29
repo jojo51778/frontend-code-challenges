@@ -1,4 +1,5 @@
 {
   "counter": "counter",
-  "useTimeout": "useTimeout"
+  "useTimeout": "useTimeout",
+  "useIsFirstRender": "useIsFirstRender"
 }
