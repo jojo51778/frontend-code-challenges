@@ -1,0 +1,33 @@
+
+### 5. usePrevious()
+Create a hook usePrevious() to return the previous value, with initial value of `undefined.
+
+solutions: 
+1. all right, useRef + useEffect is the best
+2. when value was changed, update ref.current
+3. ref.current was changed, but React would never re-render, so ref.current is previous value
+
+```javascript
+import { useState, useRef, useEffect } from 'react';
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  },[value])
+  return ref.current;
+} 
+function Previous() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <div className="card">
+        <p>count is {count}</p>
+        <p>Previous count is {usePrevious(count)}</p>
+        <button onClick={() => setCount((count) => count + 1)}>+</button>
+      </div>
+    </>
+  );
+}
+
+export default Previous;
+```

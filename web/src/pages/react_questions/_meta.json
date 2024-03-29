@@ -2,6 +2,7 @@
   "counter": "counter",
   "useTimeout": "useTimeout",
   "useIsFirstRender": "useIsFirstRender",
-  "useSWR": "useSWR"
+  "useSWR": "useSWR",
+  "usePrevious": "usePrevious"
 
 }
