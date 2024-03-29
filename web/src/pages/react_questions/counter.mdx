@@ -1,0 +1,30 @@
+### 1. the React Counter app
+As the first React problem, you are asked to create the famous Counter app.
+
+1. counter starts from 0.
+2. click the '+' button to increment.
+3. click the '-' button to decrement.
+
+This is a very easy question. 
+You can see my github file [src/views/Counter.jsx](https://github.com/jojo51778/react-code-questions/blob/main/src/views/Counter.jsx)
+
+```javascript
+import { useState } from 'react';
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <div className="card">
+        <p>count is {count}</p>
+        <button onClick={() => setCount((count) => count + 1)}>+</button>
+        <button onClick={() => setCount((count) => count - 1)}>-</button>
+      </div>
+    </>
+  );
+}
+
+export default Counter;
+```
+
+
