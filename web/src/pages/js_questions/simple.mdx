@@ -34,3 +34,58 @@ function curry(fn) {
   }
 }
 ```
+
+### 2. implement Array.prototype.flat()
+There is already Array.prototype.flat() in JavaScript (ES2019), which reduces the nesting of Array.
+
+Could you manage to implement your own one?
+
+Here is an example to illustrate
+```javascript
+const arr = [1, [2], [3, [4]]];
+flat(arr)
+// [1, 2, 3, [4]]
+flat(arr, 1)
+// [1, 2, 3, [4]]
+flat(arr, 2)
+// [1, 2, 3, 4]
+```
+solutions: 
+1. Recursive solution
+```javascript
+function flat(arr, depth = 1) {
+  let res = [];
+  arr.forEach(item => {
+    if (Array.isArray(item) && depth > 0) {
+      // you can use concat
+      // res = res.concat(flat(item, depth - 1));
+      res = [...res, ...flat(item, depth - 1)];
+    } else {
+      res.push(item)
+    }
+  })
+  return res;
+}
+```
+2. Recursive solution by reduce
+```javascript
+function flat(arr, depth = 1) {
+  return depth ? arr.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? flat(cur, depth - 1) : cur), []) : arr;
+}
+```
+3. Iterative solution by storing depth to queue
+```javascript
+function flat(arr, depth = 1) {
+  let queue = arr.map(item => [item, depth]);
+  let res = [];
+  while (queue.length > 0) {
+    const [item, itemDepth] = queue.shift();
+    if (Array.isArray(item) && itemDepth > 0) {
+      queue.push(...item.map(i => [i, itemDepth - 1]))
+    } else {
+      res.push(item);
+    }
+  }
+  return res;
+}
+```
