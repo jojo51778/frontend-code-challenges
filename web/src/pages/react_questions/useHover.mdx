@@ -1,0 +1,46 @@
+### 6. useHover()
+It is common to see conditional rendering based on hover state of some element.
+
+We can achive it by CSS pseduo class :hover, but for more complex cases it might be better to have state controlled by script.
+
+Now you are asked to create a useHover() hook.
+```javascript
+function App() {
+  const [ref, isHovered] = useHover()
+  return <div ref={ref}>{isHovered ? 'hovered' : 'not hovered'}</div>
+}
+```
+solutions:
+1. When the mouse moves into, isHover should be true
+2. When the mouse moves out, isHover should be false
+```javascript
+import { useState, useCallback, useRef} from 'react';
+
+function useHover() {
+  const ref = useRef();
+  const [isHover, setHover] = useState(false);
+  const handleMouseEnter = useCallback(() => setHover(true), []);
+  const handleMouseLeave = useCallback(() => setHover(false), []);
+  const callbackRef = useCallback(node => {
+    if (ref.current) {
+      ref.current.removeEventListener('mouseenter', handleMouseEnter);
+      ref.current.removeEventListener('mouseleave', handleMouseLeave);
+    }
+    ref.current = node;
+    ref.current.addEventListener('mouseenter', handleMouseEnter);
+    ref.current.addEventListener('mouseleave', handleMouseLeave);
+  },[handleMouseEnter, handleMouseLeave]);
+  return [callbackRef, isHover]
+}
+
+function Hover() {
+  const [ref, isHovered] = useHover()
+  return (
+    <>
+      <button id='hovered'  ref={ref}>{isHovered ? 'hovered' : 'not hovered'}</button>
+    </>
+  );
+}
+
+export default Hover;
+```

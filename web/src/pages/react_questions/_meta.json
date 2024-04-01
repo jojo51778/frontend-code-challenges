@@ -3,6 +3,6 @@
   "useTimeout": "useTimeout",
   "useIsFirstRender": "useIsFirstRender",
   "useSWR": "useSWR",
-  "usePrevious": "usePrevious"
-
+  "usePrevious": "usePrevious",
+  "useHover": "useHover"
 }
